@@ -13,6 +13,7 @@ import Footer from '../components/Footer';
 import { sanityClient } from '../sanity';
 
 export default function Home({
+  seo,
   logo,
   slug,
   imageSlide,
@@ -51,6 +52,8 @@ export default function Home({
           href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
           rel="stylesheet"
         />
+        <meta name="description" content={seo} />
+        <title>Institut Dar An Najah</title>
       </Head>
 
       <Header logo={logo} window={_window} annonce={annonce} />
@@ -126,6 +129,7 @@ export const getServerSideProps = async () => {
         ImageAvantage: information[0].avantage,
         paiement: information[0].paiement,
         /* Home */
+        seo: home[0].seo,
         imageSlide: home[0].slide.image,
         titleSlide: home[0].slide.title,
         textSlide: home[0].slide.text,

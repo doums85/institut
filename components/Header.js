@@ -8,18 +8,25 @@ const Header = ({ logo, window, annonce }) => {
   const [toggle, setToggle] = useState(false);
   const [active, setActive] = useState(false);
   const [height, setHeight] = useState('');
-  const showMenu = () => setToggle(!toggle);
+  const showMenu = () => {
+    if (toggle) setToggle(!toggle);
+
+    setToggle(!toggle);
+  };
 
   if (window) {
     const changeHeight = () => {
       setHeight(window.pageYOffset);
     };
+    const main = window.document.querySelector('main');
+    
     window.addEventListener('scroll', changeHeight);
+    main.addEventListener('click', showMenu);
   }
 
   return (
     <Container>
-      {annonce.active && !active &&(
+      {annonce.active && !active && (
         <Annonce>
           <p>{annonce.annonce} </p>
           <i onClick={() => setActive(true)} className="ri-close-line"></i>
@@ -44,6 +51,7 @@ const Header = ({ logo, window, annonce }) => {
                 activeClass="active-link"
                 spy={true}
                 smooth={true}
+                onClick={showMenu}
                 duration={100}>
                 Accueil
               </Link>
@@ -54,6 +62,7 @@ const Header = ({ logo, window, annonce }) => {
                 activeClass="active-link"
                 spy={true}
                 smooth={true}
+                onClick={showMenu}
                 duration={100}>
                 À propos
               </Link>
@@ -64,6 +73,8 @@ const Header = ({ logo, window, annonce }) => {
                 activeClass="active-link"
                 spy={true}
                 smooth={true}
+                onClick={showMenu}
+                data-id="cours"
                 duration={100}>
                 Cours
               </Link>
@@ -74,6 +85,7 @@ const Header = ({ logo, window, annonce }) => {
                 activeClass="active-link"
                 spy={true}
                 smooth={true}
+                onClick={showMenu}
                 duration={100}>
                 FAQs
               </Link>
@@ -84,6 +96,7 @@ const Header = ({ logo, window, annonce }) => {
                 activeClass="active-link"
                 spy={true}
                 smooth={true}
+                onClick={showMenu}
                 duration={100}>
                 Contact{' '}
               </Link>
@@ -199,6 +212,10 @@ const ToggleIcon = styled.div`
   cursor: pointer;
   z-index: 100;
   color: var(--title-color);
+
+  .ri-close-line {
+    color: var(--first-color);
+  }
 `;
 
 export default Header;

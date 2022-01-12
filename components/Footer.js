@@ -170,6 +170,9 @@ const Newsletter = styled.form`
   @media screen and (max-width: 789px) {
     width: 70%;
   }
+  @media screen and (max-width: 470px) {
+    width: 90%;
+  }
   input {
     width: 40%;
     padding: 0 0.5rem;
@@ -177,6 +180,9 @@ const Newsletter = styled.form`
     color: var(--text-color-b);
     border: none;
     outline: none;
+    @media screen and (min-width: 471px and max-width: 789px) {
+      width: 60%;
+    }
   }
 `;
 

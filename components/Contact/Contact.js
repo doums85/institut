@@ -23,9 +23,6 @@ const Contact = ({infoContact}) => {
             </span>
           </Information>
             ))}
-
-
-      
           </DataWrap>
         </FirstPart>
 

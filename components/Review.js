@@ -6,6 +6,7 @@ import Carousel from 'react-elastic-carousel';
 const Review = ({ reviews }) => {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
+    { width: 360, itemsToShow: 1 },
     { width: 550, itemsToShow: 2 },
     { width: 768, itemsToShow: 3 },
     { width: 1200, itemsToShow: 4 },
@@ -93,7 +94,6 @@ const Section = styled.section`
 `;
 
 const ReviewWrap = styled.div`
-  min-width: 300px;
   gap: var(--mb-1);
   background-color: var(--container-color);
   padding: 2.5rem 3rem 2rem 1.5rem;
